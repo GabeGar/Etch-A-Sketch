@@ -6,27 +6,26 @@
 
 body {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 16px;
-    /* *Required: To have the grid-items resize, based on a parental element's value, without resizing the grid itself*/
+    gap: 2%;
+    /* *Parent height value */
+    /* *Required: To have the grid-items resize, based on a parental element's value, without them resizing the grid itself*/
     height: 100vh;
     min-height: 100vh;
+    background-color: wheat;
 }
 
 .title {
     margin-top: -5%;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
 }
 
 .container-grid {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
     height: 50%;
     width: 50%;
-}
-
-
-.grid-item {
-    border: 1px solid black;
 }
