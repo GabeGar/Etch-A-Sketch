@@ -1,7 +1,11 @@
 function SketchApp() {
     const containerGrid = document.querySelector(".container-grid");
     const displayGridSize = document.querySelector(".display-grid-size");
-    const resetGridBtn = document.querySelector(".reset-grid-btn");
+    const gridSizeBtn = document.querySelector(".change-grid-btn");
+    const clearGridBtn = document.querySelector(".clear-grid-btn");
+
+    // Global variable to store current size of grid. Will be overwritten every time createGrid() gets called.
+    let currentSize;
 
     function colorSquare(hover) {
         if (hover.target.classList.value === "grid-item") {
@@ -9,25 +13,35 @@ function SketchApp() {
         }
     }
 
-    function clearGrid(event) {
+    function clearGrid() {
         containerGrid.textContent = "";
-        let newSize = prompt(
-            "How big would you like your sketch pad?\n(e.g., typing in any number such as 10 => 10x10 grid)\nNote: Cannot be greater than 100 or less than 16."
-        );
-
-        if (newSize > 100 || newSize < 16) return clearGrid();
-        createGrid(newSize);
-        eventListeners();
+        createGrid(currentSize);
+        callEventListeners();
     }
 
-    function eventListeners() {
+    function changeGrid() {
+        let newSize = parseInt(
+            prompt(
+                "How big would you like your sketch pad?\n(e.g., typing in any number such as 10 => 10x10 grid)\nNote: Cannot be greater than 100 or less than 16."
+            )
+        );
+
+        if (newSize > 100 || newSize < 16) return changeGrid();
+        clearGrid();
+        createGrid(newSize);
+        callEventListeners();
+    }
+
+    const callEventListeners = () => {
         const allSquares = document.querySelectorAll(".container-grid div");
         allSquares.forEach((square) => {
             square.addEventListener("mouseover", colorSquare);
         });
-    }
+    };
 
     const createGrid = (size) => {
+        currentSize = size;
+
         displayGridSize.textContent = `Grid Size: ${size} x ${size}`;
         displayGridSize.style.fontSize = "24px";
 
@@ -42,11 +56,15 @@ function SketchApp() {
             newSquare.classList.add("grid-item");
             containerGrid.appendChild(newSquare);
         }
+
+        return currentSize;
     };
 
+    //Default Grid Size will start at 16.
     createGrid(16);
-    resetGridBtn.addEventListener("click", clearGrid);
-    eventListeners();
+    callEventListeners();
+    gridSizeBtn.addEventListener("click", changeGrid);
+    clearGridBtn.addEventListener("click", clearGrid);
 }
 
 SketchApp();
