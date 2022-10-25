@@ -47,8 +47,8 @@ function SketchApp() {
 
         containerGrid.setAttribute(
             "style",
-            `display: grid; grid-template-columns: repeat(${size}, auto); 
-        grid-template-rows: repeat(${size}, auto);`
+            `display: grid; grid-template-columns: repeat(${size}, 1fr); 
+        grid-template-rows: repeat(${size}, 1fr);`
         );
 
         for (let i = 1; i <= size * size; i++) {
