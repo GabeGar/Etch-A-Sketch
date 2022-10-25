@@ -1,7 +1,6 @@
 const containerGrid = document.querySelector(".container-grid");
-const sizeButton = document.createElement("button");
 const body = document.querySelector("body");
-const h1 = document.querySelector("h1");
+const sizeButton = document.createElement("button");
 
 function colorSquare(hover) {
     if (hover.target.classList.value === "grid-item") {
