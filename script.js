@@ -12,7 +12,7 @@ function SketchApp() {
     function clearGrid(event) {
         containerGrid.textContent = "";
         let newSize = prompt(
-            "How big would you like your grid?\n(e.g., typing in any number such as 10 => 10x10 grid)\nNote: Cannot be greater than 100 or less than 16."
+            "How big would you like your sketch pad?\n(e.g., typing in any number such as 10 => 10x10 grid)\nNote: Cannot be greater than 100 or less than 16."
         );
 
         if (newSize > 100 || newSize < 16) return clearGrid();
@@ -45,7 +45,6 @@ function SketchApp() {
     };
 
     createGrid(16);
-
     resetGridBtn.addEventListener("click", clearGrid);
     eventListeners();
 }
