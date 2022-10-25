@@ -22,7 +22,7 @@ function SketchApp() {
     function changeGrid() {
         let newSize = parseInt(
             prompt(
-                "How big would you like your sketch pad?\n(e.g., typing in any number such as 10 => 10x10 grid)\nNote: Cannot be greater than 100 or less than 16."
+                "Enter New Grid Size:\n(Note: Must be between 16 and 100, inclusive.)"
             )
         );
 
