@@ -30,7 +30,13 @@ body {
     width: 50%;
 }
 
-button.reset-grid {
+button.change-grid-btn,
+button.clear-grid-btn {
     padding: 5px;
+    transition: 0.1s ease-in-out;
+}
 
+button:hover {
+    transform: translateX(-1px)translateY(1px);
+    background-color: antiquewhite;
 }
